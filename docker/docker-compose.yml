@@ -1,0 +1,43 @@
+version: '3.7'
+
+services:
+  song_display:
+    build: ./songDisplay
+    depends_on:
+      - mysql
+    volumes:
+      - type: bind
+        source: /Users/jonathanolson/HackReactor/FEC/Project
+        target: /src
+    ports:
+      - '5001:5001'
+    command: /bin/sh -c "cd src/songDisplayComponent && npm install && npm start"
+
+  proxy:
+    build: ./proxyServer
+    depends_on:
+      - mysql
+    volumes:
+      - type: bind
+        source: /Users/jonathanolson/HackReactor/FEC/ProxyServer
+        target: /src
+    ports:
+      - '4000:4000'
+    command: /bin/sh -c "cd src && npm install && npm start"
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    volumes:
+      - type: volume
+        source: 5cloudVolume2
+        target: /var/lib/mysql
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: 'knaslknaglknadglknafljknasff'
+
+volumes:
+  5cloudVolume2:
+    external: true
+    # 127.0.0.1:
