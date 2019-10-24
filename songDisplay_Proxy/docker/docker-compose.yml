@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  web:
+    build: .
+    volumes:
+      - type: bind
+        source: /Users/jonathanolson/HackReactor/FEC/Project
+        target: /src
+    command: /bin/sh -c "node /src/hello_world.js"
+
+volumes:
+  songDB:
+    external: true
