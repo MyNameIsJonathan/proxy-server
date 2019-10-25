@@ -62,7 +62,7 @@ services:
     restart: always
     volumes:
       - type: volume
-        source: 5cloudVolume2
+        source: 5cloudDB
         target: /var/lib/mysql
     ports:
       - '3306:3306'
@@ -70,6 +70,6 @@ services:
       MYSQL_ROOT_PASSWORD: ${HR_FRONTEND_MYSQL_PASSWORD}
 
 volumes:
-  5cloudVolume2:
+  5cloudDB:
     external: true
     # 127.0.0.1:
