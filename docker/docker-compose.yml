@@ -27,7 +27,7 @@ services:
       - '5002:5002'
     environment:
       HR_FRONTEND_MYSQL_PASSWORD: ${HR_FRONTEND_MYSQL_PASSWORD}
-    command: /bin/sh -c "cd src/playBarComponent && npm install && npm start"
+    command: /bin/sh -c "cd src/playbarComponent && npm install && npm start"
 
   side_bar:
     build: ./sideBar
@@ -41,7 +41,7 @@ services:
       - '5000:5000'
     environment:
       HR_FRONTEND_MYSQL_PASSWORD: ${HR_FRONTEND_MYSQL_PASSWORD}
-    command: /bin/sh -c "cd src/sideBarComponent && npm install && npm start"
+    command: /bin/sh -c "cd src/sidebarComponent && npm install && npm start"
 
   proxy:
     build: ./proxyServer
