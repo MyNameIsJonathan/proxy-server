@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  proxy:
+    build: ./proxyServer
+    depends_on:
+      - mysql
+    volumes:
+      - type: bind
+        source: /home/ubuntu/ProxyServer
+        target: /src
+    ports:
+      - '4000:4000'
+    environment:
+      HR_FRONTEND_MYSQL_PASSWORD: ${HR_FRONTEND_MYSQL_PASSWORD}
+    command: /bin/sh -c "cd src && npm install && npm start"

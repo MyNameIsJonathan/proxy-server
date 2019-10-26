@@ -43,20 +43,6 @@ services:
       HR_FRONTEND_MYSQL_PASSWORD: ${HR_FRONTEND_MYSQL_PASSWORD}
     command: /bin/sh -c "cd src/sidebarComponent && npm install && npm start"
 
-  proxy:
-    build: ./proxyServer
-    depends_on:
-      - mysql
-    volumes:
-      - type: bind
-        source: /home/ubuntu/ProxyServer
-        target: /src
-    ports:
-      - '4000:4000'
-    environment:
-      HR_FRONTEND_MYSQL_PASSWORD: ${HR_FRONTEND_MYSQL_PASSWORD}
-    command: /bin/sh -c "cd src && npm install && npm start"
-
   mysql:
     image: mysql:5.7
     restart: always
@@ -72,4 +58,3 @@ services:
 volumes:
   5cloudDB:
     external: true
-    # 127.0.0.1:
