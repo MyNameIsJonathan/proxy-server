@@ -15,34 +15,6 @@ services:
       HR_FRONTEND_MYSQL_PASSWORD: ${HR_FRONTEND_MYSQL_PASSWORD}
     command: /bin/sh -c "cd src/songDisplayComponent && npm install && npm start"
 
-  # play_bar:
-  #   build: ./playBar
-  #   depends_on:
-  #     - mysql
-  #   volumes:
-  #     - type: bind
-  #       source: /home/ubuntu/Project
-  #       target: /src
-  #   ports:
-  #     - '5002:5002'
-  #   environment:
-  #     HR_FRONTEND_MYSQL_PASSWORD: ${HR_FRONTEND_MYSQL_PASSWORD}
-  #   command: /bin/sh -c "cd src/playbarComponent && npm install && npm start"
-
-  # side_bar:
-  #   build: ./sideBar
-  #   depends_on:
-  #     - mysql
-  #   volumes:
-  #     - type: bind
-  #       source: /home/ubuntu/Project
-  #       target: /src
-  #   ports:
-  #     - '5000:5000'
-  #   environment:
-  #     HR_FRONTEND_MYSQL_PASSWORD: ${HR_FRONTEND_MYSQL_PASSWORD}
-  #   command: /bin/sh -c "cd src/sidebarComponent && npm install && npm start"
-
   mysql:
     image: mysql:5.7
     restart: always
