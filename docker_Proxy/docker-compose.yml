@@ -3,8 +3,6 @@ version: '3.7'
 services:
   proxy:
     build: ./proxyServer
-    depends_on:
-      - mysql
     volumes:
       - type: bind
         source: /home/ubuntu/ProxyServer
