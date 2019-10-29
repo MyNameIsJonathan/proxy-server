@@ -1,0 +1,14 @@
+body {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #cccccc;
+}
+
+#main-container {
+  background-color: #ffffff;
+}
+
+#sidebar {
+  align-self: end;
+}
